@@ -1,5 +1,5 @@
 // 전처리 : 원하는 데이터를 찾기 위해 가공하는 작업
-function splitString(string) {
+function splitString(string, type) {
   let result = [];
   let first = string.split('&');
 
@@ -8,7 +8,8 @@ function splitString(string) {
     result.push(value);
   });
 
-  return `
+  if(type === "HTML") {
+    return `
   <html>
     <head>
       <title>결과값</title>
@@ -20,6 +21,12 @@ function splitString(string) {
     </body>
   </html>
   `;
+  } else if(type === "FILE") {
+    return `결과값
+name : ${result[0]}
+message : ${result[1]}`;
+  }
 }
+
 
 module.exports = { splitString };
