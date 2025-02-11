@@ -12,7 +12,7 @@ const server = http.createServer(function(request, response) {
   response.writeHead(200, { 'Content-Type': 'utf-8; text/html'});
   const helloWorld = "hello world";
   response.write(helloWorld);
-  response.end();
+  response.end(); // ? end() 를 비우고 위에 write()로 절차를 추가하기도 하는 패턴
 });
 
 server.listen(3000, function() {
